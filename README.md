@@ -1,1 +1,1 @@
-# programowanie-obiektowe
+#w67254_programowanie-obiektowe_GL01_3IID_2022
