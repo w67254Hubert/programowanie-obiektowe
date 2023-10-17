@@ -6,7 +6,7 @@ namespace pierwsze_zajecia
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Wybiierz zadanie:");
+            Console.WriteLine("Wybierz zadanie:");
             Console.WriteLine("Zad 1 - Napisz program, który sprawdzi, czy podana przez użytkownika liczba jestparzysta czy nieparzysta.");
             Console.WriteLine("Zad 2 - Napisz program, który wypisze na konsoli wszystkie parzyste liczby od 1 do N,gdzie N jest liczbą wprowadzoną przez użytkownika.");
             Console.WriteLine("Zad 4 - Napisz program, który obliczy silnie ze wskazanej przez użytkownika liczby.");
@@ -36,7 +36,6 @@ namespace pierwsze_zajecia
                     return;
             }
 
-
             static void zadanie1()
             {
                 //ZADANIE 1
@@ -52,6 +51,7 @@ namespace pierwsze_zajecia
                     Console.WriteLine("Liczba jest nieparzysta");
                 }
             }
+
             static void zadanie2()
             {
                 //ZADANIE 2
@@ -65,6 +65,7 @@ namespace pierwsze_zajecia
                         {
                             Console.WriteLine(i);
                         }
+
                     }
                     else
                     {
@@ -73,7 +74,7 @@ namespace pierwsze_zajecia
                 }
                 else
                 {
-                    Console.WriteLine("To nie jest poprawna liczba całkowita.");
+                    Console.WriteLine("To nie jest liczba całkowita.");
                 }
             }
 
@@ -111,8 +112,7 @@ namespace pierwsze_zajecia
 
                     return result;
                 };
-
-
+            
             }
             static void zadanie5()
             {
@@ -136,7 +136,7 @@ namespace pierwsze_zajecia
             static void zadanie6()
             {
                 //zadanie 6
-                Console.WriteLine("Wybierz jednostki, które chcesz przeliczać:");
+                Console.WriteLine("Wybierz jednostki do przeliczenia przeliczać:");
                 Console.WriteLine("1. Metry na centymetry");
                 Console.WriteLine("2. Centymetry na metry");
 
@@ -159,12 +159,13 @@ namespace pierwsze_zajecia
                 {
                     Console.WriteLine("Nieprawidłowy wybór. Wybierz 1 lub 2.");
                 }
+
                 static void MetrNaCentymetr()
                 {
                     Console.Write("Podaj długość w metrach: ");
-                    if (double.TryParse(Console.ReadLine(), out double m))
+                    if (float.TryParse(Console.ReadLine(), out float m))
                     {
-                        double cm = m * 100;
+                        float cm = m * 100;
                         Console.WriteLine("Długość w centymetrach:" +cm+ "cm");
                     }
                     else
@@ -172,12 +173,13 @@ namespace pierwsze_zajecia
                         Console.WriteLine("To nie jest prawidłowa długość w metrach.");
                     }
                 }
+
                 static void CentymetrNaMetr()
                 {
                     Console.Write("Podaj długość w centymetrach: ");
-                    if (double.TryParse(Console.ReadLine(), out double cm))
+                    if (float.TryParse(Console.ReadLine(), out float cm))
                     {
-                        double m = cm / 100;
+                        float m = cm / 100;
                         Console.WriteLine("Długość w metrach:" +m+ "m");
                     }
                     else
