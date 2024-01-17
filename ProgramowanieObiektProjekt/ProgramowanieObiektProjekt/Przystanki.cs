@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //będzie tworzyć przystanki jakie są
-namespace Projekt.Przystanki
+namespace Projekt
 {
     internal class Przystanek
     {

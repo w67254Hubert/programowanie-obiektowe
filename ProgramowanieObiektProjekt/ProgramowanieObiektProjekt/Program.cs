@@ -7,8 +7,19 @@ namespace Projekt
     class Program
     {
         static void Main(string[] args) {
-            Autobusy.Autobus elo = new Autobusy.Autobus();
-            Console.WriteLine(elo.marka_model); 
+
+            Autobus elo = new Autobus();
+
+            Console.WriteLine(elo.marka_model);
+
+
+            Autobus elo2 = new Autobus( "ok", "Merc");
+
+            Console.WriteLine(elo2.marka_model);
+
+
+
+            Console.ReadKey();
         }
         
 
