@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //będzie tworzyć rejestry rozkładu jazdy
-namespace Projekt
+namespace ProgramowanieObiektProjekt
 {
     internal class Rozkładjazd
     {
