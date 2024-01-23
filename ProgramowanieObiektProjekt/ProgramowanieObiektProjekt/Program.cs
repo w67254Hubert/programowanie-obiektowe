@@ -10,22 +10,37 @@ namespace ProgramowanieObiektProjekt
     {
         static void Main(string[] args) {
 
-            Autobus elo = new Autobus();
+            Autobus bus1 = new Autobus(10,"ok","man",200, "rze");
+           
+            Console.WriteLine("bus1");
 
-            Console.WriteLine(elo.marka_model);
+            Console.WriteLine(bus1.ID);
+            Console.WriteLine(bus1.Stan);
+            Console.WriteLine(bus1.Marka_model);
+            Console.WriteLine(bus1.Rejestracja);
+            Console.WriteLine(bus1.Miejsca);
 
-            //elo.setMiejsca(100);
+            Console.WriteLine("bus2");
+            Autobus bus2 = new Autobus(10, "ok", "man", 200, "rze");
+            bus2.ID = -10;
+            bus2.Stan = "";
+            bus2.Marka_model="";
+            bus2.Rejestracja="";
+            bus2.Miejsca=-200;
+            Console.WriteLine(bus2.ID);
+            Console.WriteLine(bus2.Stan);
+            Console.WriteLine(bus2.Marka_model);
+            Console.WriteLine(bus2.Rejestracja);
+            Console.WriteLine(bus2.Miejsca);
 
-            //Console.WriteLine(elo.getMiejsca());
-            elo.Miejsca = 20;
-            elo.Miejsca = -20;
+            Console.WriteLine("bus3");
 
-            Console.WriteLine(elo.Miejsca);
-
-            Autobus elo2 = new Autobus( "ok", "Merc");
-
-            Console.WriteLine(elo2.marka_model);
-     
+            Autobus bus3 = new Autobus(10,"ok","man",200, "rze");
+            Console.WriteLine(bus3.ID);
+            Console.WriteLine(bus3.Stan);
+            Console.WriteLine(bus3.Marka_model);
+            Console.WriteLine(bus3.Rejestracja);
+            Console.WriteLine(bus3.Miejsca);
 
 
             Console.ReadKey();

@@ -8,40 +8,29 @@ namespace ProgramowanieObiektProjekt
 {
     class Autobus
     {
-        public Autobus(string Stank, string Marka_modelK)
-        {   //może być wiele konstruktorów ten wymaga podania imienia podczas wywołania
+        public Autobus(int kid, string kstan, string kmarka_model, int kmiejsca, string krejestracja)
+        {
             Console.WriteLine("konstruktor wymuszanie podania wartości");
-            Stan = Stank;
-            marka_model = Marka_modelK;
+            ID = kid;
+            Stan = kstan;
+            Marka_model = kmarka_model;
+            Rejestracja = krejestracja;
+            Miejsca = kmiejsca;
         }
+        
 
-        public Autobus()
-        {   //trn nie potrzebuje niczego podczas wywołania 
-            Console.WriteLine("konstruktor wymuszanie podania wartości");
-
-        }
-        public string Stan = "nie ma danych";
-        public string marka_model = "nie ma marki";
-        public string rejestracja = "brak rejestracji";
-
-        // public int getMiejsca()
-        // {
-        //     return miejsca;
-        //}
-        // public void setMiejsca(int w)
-        // {
-        //     if (0>w)
-        //     {
-        //         miejsca = w;
-        //     }
-        // }
- //propfull
+        private int id;
+        private string stan;
+        private string marka_model;
+        private string rejestracja;
         private int miejsca;
 
-        public int Miejsca
+
+       public int Miejsca
         {
             get { return miejsca; }
-            set {
+            set
+            {
                 if (value >= 0)
                 {
                     miejsca = value;
@@ -51,10 +40,75 @@ namespace ProgramowanieObiektProjekt
                     miejsca = 0;
                 }
             }
-            
-
         }
-        public string cos { get; set; } 
+
+        public string Rejestracja
+        {
+            get { return rejestracja; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                     rejestracja =value ;
+
+                }
+                else
+                {
+                    rejestracja = "brakrejestracji";
+
+                }
+            }
+        }
+        public string Marka_model
+        {
+            get { return marka_model; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    marka_model = value;
+                }
+                else
+                {
+                    marka_model = "brak marki i modelu";
+
+                }
+            }
+        }
+
+        public string Stan
+        {
+            get { return stan; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    stan = value;
+                }
+                else
+                {
+                    stan = "Nie znany stan";
+
+                }
+            }
+        }
+
+        public int ID
+        {
+            get { return id; }
+            set
+            {
+                if (value >= 0)
+                {
+                    id = value;
+                }
+                else
+                {
+                    id = 0;
+                }
+            }
+        }
+
 
         ~Autobus()
         {

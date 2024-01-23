@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProgramowanieObiektProjekt
 {
-    static class metody
+    internal class Metody
     {
-        //klasa do funkcji/ metod przydatna gdy metody nie potrzebują zmiany swojej wartości static
+
+
     }
 }
