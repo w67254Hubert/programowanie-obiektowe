@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProgramowanieObiektProjekt
 {
-    internal class Metody
+    abstract class Metody
     {
+        static public void CoWObiekt(object x) {
+            //nie działa trzeba obczajić czemu
+            Console.WriteLine(x);
+        
+        
+        }
 
 
     }

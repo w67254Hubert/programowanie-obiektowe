@@ -36,12 +36,7 @@ namespace ProgramowanieObiektProjekt
             Console.WriteLine("bus3");
 
             Autobus bus3 = new Autobus(10,"ok","man",200, "rze");
-            Console.WriteLine(bus3.ID);
-            Console.WriteLine(bus3.Stan);
-            Console.WriteLine(bus3.Marka_model);
-            Console.WriteLine(bus3.Rejestracja);
-            Console.WriteLine(bus3.Miejsca);
-
+            string CoWObiekt(bus3);
 
             Console.ReadKey();
         }
