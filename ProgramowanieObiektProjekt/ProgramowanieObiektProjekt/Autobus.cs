@@ -8,7 +8,7 @@ namespace ProgramowanieObiektProjekt
 {
     public class Autobus
     {
-        public Autobus(int kid, string kstan, string kmarka_model, int kmiejsca, string krejestracja,int kbiletomatID)
+        public Autobus(int kid, string kstan, string kmarka_model, int kmiejsca, string krejestracja,int kbiletomatID, int kkierowcaid)
         {
             ID = kid;
             Stan = kstan;
@@ -16,6 +16,7 @@ namespace ProgramowanieObiektProjekt
             Rejestracja = krejestracja;
             Miejsca = kmiejsca;
             biletomatID = kbiletomatID;
+            kierowcaID = kkierowcaid;
         }
         
 
@@ -25,6 +26,23 @@ namespace ProgramowanieObiektProjekt
         private string rejestracja;
         private int miejsca;
         private int biletomatID;
+        private int kierowcaID;
+        public int KierowcaID
+        {
+            get { return kierowcaID; }
+            set
+            {
+                if (value >= 0)
+                {
+                    kierowcaID = value;
+                }
+                else
+                {
+                    kierowcaID = 0;
+                }
+            }
+
+        }
 
         public int BiletomatID
         {
