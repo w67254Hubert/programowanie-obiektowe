@@ -39,7 +39,8 @@ namespace ProgramowanieObiektProjekt
 
             kierowca kie1 = new kierowca(1, "Bolesław", "Wadzinski");
             kie1.infoKierowca();
-
+            kie1.editKierowca("maciej", "stary");
+            kie1.infoKierowca();
 
 
 

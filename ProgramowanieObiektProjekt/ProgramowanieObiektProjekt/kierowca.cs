@@ -9,17 +9,17 @@ namespace ProgramowanieObiektProjekt
 {
     internal class kierowca
     {
-        public kierowca(int idk,string imiek,string nazwiskok) 
+        public kierowca(int idk, string imiek, string nazwiskok)
         {
-        id=idk;
-        imie=imiek;
-        nazwisko=nazwiskok;
+            id = idk;
+            imie = imiek;
+            nazwisko = nazwiskok;
 
         }
         private int id;
         private string imie;
         private string nazwisko;
-        
+
         public int ID
         {
             get { return id; }
@@ -77,7 +77,18 @@ namespace ProgramowanieObiektProjekt
             Console.WriteLine($"{id} {imie} {nazwisko}");
 
         }
+        public void editKierowca(string stan, string model)
+        {
+            if (!string.IsNullOrEmpty(stan))
+            {
+                this.imie = stan;
+            }
 
+            if (!string.IsNullOrEmpty(model))
+            {
+                this.nazwisko = model;
+            }
 
+        }
     }
 }
