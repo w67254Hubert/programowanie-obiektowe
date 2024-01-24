@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 //ta według tej klasy mamy obiekt autobus metody opisują autobus
 namespace ProgramowanieObiektProjekt
 {
-    class Autobus
+    public class Autobus
     {
-        public Autobus(int kid, string kstan, string kmarka_model, int kmiejsca, string krejestracja)
+        public Autobus(int kid, string kstan, string kmarka_model, int kmiejsca, string krejestracja,int kbiletomatID)
         {
-            Console.WriteLine("konstruktor wymuszanie podania wartości");
             ID = kid;
             Stan = kstan;
             Marka_model = kmarka_model;
             Rejestracja = krejestracja;
             Miejsca = kmiejsca;
+            biletomatID = kbiletomatID;
         }
         
 
@@ -24,7 +24,23 @@ namespace ProgramowanieObiektProjekt
         private string marka_model;
         private string rejestracja;
         private int miejsca;
+        private int biletomatID;
 
+        public int BiletomatID
+        {
+            get { return biletomatID; }
+            set
+            {
+                if (value >= 0)
+                {
+                    biletomatID = value;
+                }
+                else
+                {
+                    biletomatID = 0;
+                }
+            }
+        }
 
        public int Miejsca
         {
@@ -108,9 +124,42 @@ namespace ProgramowanieObiektProjekt
                 }
             }
         }
+        public void infoAutobus()
+        {
+            Console.WriteLine($"{id} {stan} {marka_model} {rejestracja} {miejsca}");
+
+        }
+        public void editAutobus(string stan, string marka_model, int miejsca, string rejestracja,int biletomatID)
+        {
+            if (!string.IsNullOrEmpty(stan))
+            {
+                this.stan = stan;
+            }
+
+            if (!string.IsNullOrEmpty(marka_model))
+            {
+                this.marka_model = marka_model;
+            }
+
+            if (miejsca >= 0)
+            {
+                this.miejsca = miejsca;
+            }
+
+            if (!string.IsNullOrEmpty(rejestracja))
+            {
+                this.rejestracja= rejestracja;
+            }
+
+            if (biletomatID >= 0)
+            {
+                this.biletomatID = biletomatID;
+            }
+        }
 
 
-        ~Autobus()
+
+            ~Autobus()
         {
             Console.Write("destruktor");
 
