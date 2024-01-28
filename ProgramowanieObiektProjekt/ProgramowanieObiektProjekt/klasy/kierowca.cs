@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramowanieObiektProjekt
+namespace ProgramowanieObiektProjekt.klasy
 {
     internal class kierowca
     {
@@ -31,7 +31,7 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    id = 0;
+                    throw new ArithmeticException("ID nie może być ujemne");
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    imie = "brak imienia";
+                    throw new ArgumentException("pole imie nie może być puste");
 
                 }
             }
@@ -65,7 +65,7 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    nazwisko = "brak nazwiska";
+                    throw new ArgumentException("pole nzawisko nie może być puste");
 
                 }
             }
@@ -74,19 +74,19 @@ namespace ProgramowanieObiektProjekt
 
         public void infoKierowca()
         {
-            Console.WriteLine($"{id} {imie} {nazwisko}");
+            Console.WriteLine($"kierowca ID:{id}, Imie:{imie},Nazwisko{nazwisko}");
 
         }
         public void editKierowca(string stan, string model)
         {
             if (!string.IsNullOrEmpty(stan))
             {
-                this.imie = stan;
+                imie = stan;
             }
 
             if (!string.IsNullOrEmpty(model))
             {
-                this.nazwisko = model;
+                nazwisko = model;
             }
 
         }

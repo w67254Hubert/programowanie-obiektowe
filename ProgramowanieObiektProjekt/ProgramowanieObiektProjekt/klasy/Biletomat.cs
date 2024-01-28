@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramowanieObiektProjekt
+namespace ProgramowanieObiektProjekt.klasy
 {
     public class Biletomat
     {
-       public Biletomat (int idk, string mo, string s)
+        public Biletomat(int idk, string mo, string s)
         {
             id = idk;
             model = mo;
@@ -31,7 +31,7 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    id = 0;
+                    throw new ArithmeticException("ID nie może być ujemne");
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    model = "brak marki i modelu";
+                    throw new ArgumentException("pole model nie może być puste");
 
                 }
             }
@@ -70,7 +70,7 @@ namespace ProgramowanieObiektProjekt
         }
         public void infoBiletomat()
         {
-            Console.WriteLine($"{id} {stan} {model}");
+            Console.WriteLine($"biletomat ID:{id}, Stan:{stan} Model:{model}");
 
         }
         public void editBiletomat(string stan, string model)

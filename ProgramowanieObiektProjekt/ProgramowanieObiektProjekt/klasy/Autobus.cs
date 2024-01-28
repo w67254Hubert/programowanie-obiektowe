@@ -1,14 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 //ta według tej klasy mamy obiekt autobus metody opisują autobus
-namespace ProgramowanieObiektProjekt
+namespace ProgramowanieObiektProjekt.klasy
 {
     public class Autobus
     {
-        public Autobus(int kid, string kstan, string kmarka_model, int kmiejsca, string krejestracja,int kbiletomatID, int kkierowcaid)
+        public Autobus(int kid, string kstan, string kmarka_model, int kmiejsca, string krejestracja, int kbiletomatID, int kkierowcaid)
         {
             ID = kid;
             Stan = kstan;
@@ -18,7 +20,7 @@ namespace ProgramowanieObiektProjekt
             biletomatID = kbiletomatID;
             kierowcaID = kkierowcaid;
         }
-        
+
 
         private int id;
         private string stan;
@@ -38,7 +40,7 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    kierowcaID = 0;
+                    throw new ArithmeticException("kierowca ID nie może być ujemne");
                 }
             }
 
@@ -55,23 +57,23 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    biletomatID = 0;
+                    throw new ArgumentException("biletomat ID nie może być ujemne");
                 }
             }
         }
 
-       public int Miejsca
+        public int Miejsca
         {
             get { return miejsca; }
             set
             {
-                if (value >= 0)
+                if (value > 0)
                 {
                     miejsca = value;
                 }
                 else
                 {
-                    miejsca = 0;
+                    throw new ArithmeticException("pole Miejsca nie może być ujemne lub zero");
                 }
             }
         }
@@ -83,12 +85,12 @@ namespace ProgramowanieObiektProjekt
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                     rejestracja =value ;
+                    rejestracja = value;
 
                 }
                 else
                 {
-                    rejestracja = "brakrejestracji";
+                    rejestracja = "Brak Rejestracji";
 
                 }
             }
@@ -104,7 +106,7 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    marka_model = "brak marki i modelu";
+                    throw new ArgumentException("pole model nie może być puste");
 
                 }
             }
@@ -138,16 +140,17 @@ namespace ProgramowanieObiektProjekt
                 }
                 else
                 {
-                    id = 0;
+                    throw new ArgumentException("ID nie może być ujemne");
                 }
             }
         }
+
         public void infoAutobus()
         {
-            Console.WriteLine($"{id} {stan} {marka_model} {rejestracja} {miejsca}");
+            Console.WriteLine($"autobus ID:{id}, Stan:{stan}, Markę:{marka_model}, Rejsstracja:{rejestracja}, Ilość miejsc:{miejsca}");
 
         }
-        public void editAutobus(string stan, string marka_model, int miejsca, string rejestracja,int biletomatID)
+        public void editAutobus(string stan, string marka_model, int miejsca, string rejestracja, int biletomatID, int kierowcaID)
         {
             if (!string.IsNullOrEmpty(stan))
             {
@@ -166,20 +169,22 @@ namespace ProgramowanieObiektProjekt
 
             if (!string.IsNullOrEmpty(rejestracja))
             {
-                this.rejestracja= rejestracja;
+                this.rejestracja = rejestracja;
             }
 
             if (biletomatID >= 0)
             {
                 this.biletomatID = biletomatID;
             }
-        }
+            if (kierowcaID >= 0)
+            {
+                this.kierowcaID = kierowcaID;
+            }
+        } 
 
-
-
-            ~Autobus()
+        ~Autobus()
         {
-            Console.Write("destruktor");
+            Console.Write("destruktor uwuwa obiekty");
 
         }
     }

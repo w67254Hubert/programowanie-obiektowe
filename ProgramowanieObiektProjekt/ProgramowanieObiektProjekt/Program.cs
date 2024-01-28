@@ -1,50 +1,94 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Reflection.Metadata;
+using ProgramowanieObiektProjekt.klasy;
 //aplikacja transportu miejskiego do sprawdzania posiadanych autobusów
 //ogarnij enum
-//try cath do obsługi bazy danych 
+
 
 namespace ProgramowanieObiektProjekt
 {
     class Program
     {
         static void Main(string[] args) {
+            
+            Autobus bus1 = new Autobus(1,"ok","man",100, "",3,42);
 
-            Autobus bus1 = new Autobus(10,"ok","man",200, "rze",1, 1);
-           
-            Console.WriteLine("bus1");
-            bus1.infoAutobus();
+            Autobus bus2 = new Autobus(2, "nieOk", "man", 1000, "", 2, 25);
 
-            Console.WriteLine("bus2");
-            Autobus bus2 = new Autobus(10, "ok", "man", 200, "rze",2,2);
-            bus2.ID = -10;
-            bus2.Stan = "";
-            bus2.Marka_model="";
-            bus2.Rejestracja="";
-            bus2.Miejsca=-200;
-            bus2.BiletomatID = 5;
-            bus2.infoAutobus();
+            Autobus bus3 = new Autobus(3, "ok", "man", 200, "rze", 1, 13);
 
-            Console.WriteLine("bus3");
-            Autobus bus3 = new Autobus(10,"ok","man",200, "rze",12,3);
-            bus3.editAutobus("nieOk","mercedes",100,"wa",3);
-            bus3.infoAutobus();
+            Biletomat bil1 = new Biletomat(1,"bmat","ok");
 
+            Biletomat bil2 = new Biletomat(2, "bmat", "ok");
 
-            Biletomat bil1 = new Biletomat(1,"s","s");
-            bil1.infoBiletomat();
-            bil1.editBiletomat( "XD","ok" );
-            bil1.infoBiletomat();
+            Biletomat bil3 = new Biletomat(3, "bmat", "ok");
 
+            kierowca kie1 = new kierowca(5, "Bolesław", "Wadzinski");
 
-            kierowca kie1 = new kierowca(1, "Bolesław", "Wadzinski");
-            kie1.infoKierowca();
-            kie1.editKierowca("maciej", "stary");
-            kie1.infoKierowca();
+            kierowca kie2 = new kierowca(6, "Bolesław", "wadzinski");
+
+            kierowca kie3 = new kierowca(7, "hubert", "Lania");
+            while (true)
+            {
+
+                Console.WriteLine(">>>>>>>MENU<<<<<<<<");
+                Console.WriteLine("1-informacje o zawartości obiektu");
+                Console.WriteLine("2-informacje o zaktualizuj obiekty");
+                Console.WriteLine("4-Odświerz widok konsoli");
+                Console.WriteLine("5-Zakończdziałanie");
+
+                string x = Console.ReadLine();
+                int.TryParse(x, out int w);
+
+                if (w == 1)
+                {   
+                    Console.WriteLine("Autobusy");
+                    bus1.infoAutobus();
+                    bus2.infoAutobus();
+                    bus3.infoAutobus();
+                    Console.WriteLine("biletomaty");
+                    bil1.infoBiletomat();
+                    bil2.infoBiletomat();
+                    bil3.infoBiletomat();
+                    Console.WriteLine("bierowcy");
+                    kie1.infoKierowca();
+                    kie2.infoKierowca();
+                    kie3.infoKierowca();
+                }
+                if (w == 2)
+                {
+                    bus1.editAutobus("nieOk", "mercedes", 110, "RZE12345", 3, 4);
+                    bus2.editAutobus("Ok", "", 100, "RZE1231", 2, 5);
+                    bus3.editAutobus("nieOk", "mercedes", 100, "RZE1212", 1, 6);
+
+                    bil1.editBiletomat("bmat+", "ok");
+                    bil2.editBiletomat("bmat++", "ok");
+                    bil3.editBiletomat("", "nieOk");
+
+                    kie1.editKierowca("Maciej", "Stary");
+                    kie2.editKierowca("", "Wadzinski");
+                    kie3.editKierowca("Hubert", "Łania");
+
+                    Console.WriteLine("Aktualizacja powiodła się");
+                }
+                if (w == 4)
+                {
+                    Console.Clear();
+                }
+
+                if (w==5)
+                {
+                    break;
+                }
+
+            }
 
 
 
             Console.ReadKey();
+
+
         }
 
     }
