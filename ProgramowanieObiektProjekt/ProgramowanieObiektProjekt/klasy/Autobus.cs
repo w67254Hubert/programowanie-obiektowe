@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 //ta według tej klasy mamy obiekt autobus metody opisują autobus
 namespace ProgramowanieObiektProjekt.klasy
 {
@@ -21,7 +22,6 @@ namespace ProgramowanieObiektProjekt.klasy
             kierowcaID = kkierowcaid;
         }
 
-
         private int id;
         private string stan;
         private string marka_model;
@@ -29,6 +29,7 @@ namespace ProgramowanieObiektProjekt.klasy
         private int miejsca;
         private int biletomatID;
         private int kierowcaID;
+
         public int KierowcaID
         {
             get { return kierowcaID; }
@@ -40,7 +41,7 @@ namespace ProgramowanieObiektProjekt.klasy
                 }
                 else
                 {
-                    throw new ArithmeticException("kierowca ID nie może być ujemne");
+                    throw new ArithmeticException("kierowca ID nie może być ujemne/puste");
                 }
             }
 
@@ -57,7 +58,7 @@ namespace ProgramowanieObiektProjekt.klasy
                 }
                 else
                 {
-                    throw new ArgumentException("biletomat ID nie może być ujemne");
+                    throw new ArgumentException("biletomat ID nie może być ujemnepuste");
                 }
             }
         }
@@ -73,7 +74,7 @@ namespace ProgramowanieObiektProjekt.klasy
                 }
                 else
                 {
-                    throw new ArithmeticException("pole Miejsca nie może być ujemne lub zero");
+                    throw new ArithmeticException("pole Miejsca nie może być puste,ujemne lub zero");
                 }
             }
         }
@@ -140,7 +141,7 @@ namespace ProgramowanieObiektProjekt.klasy
                 }
                 else
                 {
-                    throw new ArgumentException("ID nie może być ujemne");
+                    throw new ArgumentException("ID nie może być ujemne/puste");
                 }
             }
         }
@@ -152,40 +153,48 @@ namespace ProgramowanieObiektProjekt.klasy
         }
         public void editAutobus(string stan, string marka_model, int miejsca, string rejestracja, int biletomatID, int kierowcaID)
         {
+            
             if (!string.IsNullOrEmpty(stan))
             {
                 this.stan = stan;
-            }
+            }else { Console.WriteLine($"obiekt klasy Autobus o {ID} wartość stan nie została zmieniona {stan}"); }
+
+
 
             if (!string.IsNullOrEmpty(marka_model))
             {
                 this.marka_model = marka_model;
-            }
+            }else { Console.WriteLine($"obiekt klasy Autobus o {ID} wartość marka_model nie została zmieniona {marka_model}"); }
+
 
             if (miejsca >= 0)
             {
                 this.miejsca = miejsca;
-            }
+            }else { Console.WriteLine($"obiekt klasy Autobus o {ID} wartość miejsca nie została zmieniona {miejsca}"); }
 
             if (!string.IsNullOrEmpty(rejestracja))
             {
                 this.rejestracja = rejestracja;
-            }
+            }else { Console.WriteLine($"obiekt klasy Autobus o {ID} wartość rejestracja nie została zmieniona {rejestracja}"); }
+
 
             if (biletomatID >= 0)
             {
                 this.biletomatID = biletomatID;
-            }
+            }else { Console.WriteLine($"obiekt klasy Autobus o {ID} wartość biletomatID nie została zmieniona {biletomatID}"); }
+
             if (kierowcaID >= 0)
             {
                 this.kierowcaID = kierowcaID;
-            }
-        } 
+            }else { Console.WriteLine($"obiekt klasy Autobus o {ID} wartość kierowcaID nie została zmieniona {kierowcaID}"); }
+
+        }
+
+
 
         ~Autobus()
         {
             Console.Write("destruktor uwuwa obiekty");
-
         }
     }
 }

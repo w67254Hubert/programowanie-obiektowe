@@ -31,7 +31,7 @@ namespace ProgramowanieObiektProjekt.klasy
                 }
                 else
                 {
-                    throw new ArithmeticException("ID nie może być ujemne");
+                    throw new ArithmeticException("ID nie może być ujemne/puste");
                 }
             }
         }
@@ -79,11 +79,19 @@ namespace ProgramowanieObiektProjekt.klasy
             {
                 this.stan = stan;
             }
+            else { Console.WriteLine($"obiekt klasy Biletomat {ID} WArtość nie zostałą zmieniona {stan}"); }
 
             if (!string.IsNullOrEmpty(model))
             {
                 this.model = model;
             }
+            else { Console.WriteLine($"obiekt klasy Biletomat {ID} WArtość nie zostałą zmieniona {model}"); }
+
+        }
+        ~Biletomat()
+        {
+            Console.Write("destruktor uwuwa obiekty");
+
         }
 
     }
